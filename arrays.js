@@ -55,30 +55,58 @@
 // }
 
 // Array Push Challenge
-let cards = [2, 8, "K", 9, 10, 3, 4, "Q", 7, "J", 5, 6, "A"];
-let faceCards = [];
-let numberedCards = [];
+// let cards = [2, 8, "K", 9, 10, 3, 4, "Q", 7, "J", 5, 6, "A"];
+// let faceCards = [];
+// let numberedCards = [];
 
-while (cards.length > 0) {
-    let card = cards.pop();
-    if (isFaceCard(card)){
-        faceCards.push(card);
-    } else {
-        numberedCards.push(card);
-    }
+// while (cards.length > 0) {
+//     let card = cards.pop();
+//     if (isFaceCard(card)){
+//         faceCards.push(card);
+//     } else {
+//         numberedCards.push(card);
+//     }
+// }
+// console.log(cards);
+// console.log(faceCards);
+// console.log(numberedCards);
+
+// function isFaceCard(card){
+//     switch(card){
+//         case "A":
+//         case "K":
+//         case "Q":
+//         case "J":
+//             return true;
+//         default:
+//             return false;
+//     }
+// }
+
+// ForEach Challenge
+let animals = [
+    'bat', 'tiger', 'yak',
+    'monkey', 'snake', 'lizard',
+    'panda', 'monkey', 'hyena'
+]
+
+let zooTrip = {
+    seen: [],
+    animalsSeen: 0
 }
-console.log(cards);
-console.log(faceCards);
-console.log(numberedCards);
 
-function isFaceCard(card){
-    switch(card){
-        case "A":
-        case "K":
-        case "Q":
-        case "J":
-            return true;
-        default:
-            return false;
+animals.forEach((animal) => {
+    console.log(`${animal} was seen today at the zoo!`);
+    // Order dependent code, This checks before the new animal add, if unique adds ++ to animalsSeen
+    if (!zooTrip.seen.includes(animal)) {
+        zooTrip.animalsSeen++
     }
+    //Adds to seen array
+    seenAtTheZoo(animal);
+}) 
+
+console.log(zooTrip)
+
+function seenAtTheZoo(animal){
+    zooTrip.seen.push(animal);
 }
